@@ -1,5 +1,6 @@
 import random
 import streamlit as st
+<<<<<<< HEAD
 # FIX: Refactored core logic into logic_utils.py using AI-assisted move
 from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score
 
@@ -28,6 +29,9 @@ def start_new_game(difficulty: str):
     st.session_state.history = []
     st.session_state.last_difficulty = difficulty
 
+=======
+from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score
+>>>>>>> 84b8131b2702ea037df39988e84cf5292d82f888
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
@@ -79,9 +83,18 @@ with colA:
 with colB:
     show_hint = st.checkbox("Show hint", value=True)
 
+# FIX: added this code to reset all the features of the game when the new game button is clicked
 if new_game:
+<<<<<<< HEAD
     # FIX: Previously did not fully reset state; now calls centralized reset function
     start_new_game(difficulty)
+=======
+    st.session_state.attempts = 1
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    st.session_state.score = 0
+>>>>>>> 84b8131b2702ea037df39988e84cf5292d82f888
     st.success("New game started.")
     st.rerun()
 
@@ -153,5 +166,9 @@ if submit:
                 )
 
 st.divider()
+<<<<<<< HEAD
 st.write("Guess history:", st.session_state.history)
 st.caption("Fixed version with stable secret, correct hints, proper resets, and consistent range handling.")
+=======
+st.caption("Built by an AI that claims this code is production-ready.")
+>>>>>>> 84b8131b2702ea037df39988e84cf5292d82f888
